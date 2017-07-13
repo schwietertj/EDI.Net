@@ -151,6 +151,26 @@ namespace indice.Edi
             return new EdiGrammar();
         }
 
+        public static IEdiGrammar NewCustomGrammer(ICustomGrammerProperties grammer) 
+        {
+            return new EdiGrammar() {
+                _SegmentNameDelimiter = grammer.SegmentNameDelimiter,
+                _ComponentDataElementSeparator = grammer.ComponentDataElementSeparator,
+                _DataElementSeparator = grammer.DataElementSeparator,
+                _DecimalMark = grammer.DecimalMark,
+                _ReleaseCharacter = grammer.ReleaseCharacter,
+                _Reserved = grammer.Reserved,
+                _SegmentTerminator = grammer.SegmentTerminator,
+                _ServiceStringAdviceTag = grammer.ServiceStringAdviceTag,
+                _InterchangeHeaderTag = grammer.InterchangeHeaderTag,
+                _FunctionalGroupHeaderTag = grammer.FunctionalGroupHeaderTag,
+                _MessageHeaderTag = grammer.MessageHeaderTag,
+                _MessageTrailerTag = grammer.MessageTrailerTag,
+                _FunctionalGroupTrailerTag = grammer.FunctionalGroupTrailerTag,
+                _InterchangeTrailerTag = grammer.InterchangeTrailerTag
+            };
+        }
+
         public static IEdiGrammar NewTradacoms() {
             return new EdiGrammar() {
                 _SegmentNameDelimiter = '=',
